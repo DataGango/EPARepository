@@ -1,0 +1,44 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #18283b; background: #f2f5f8; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.shell { max-width: 1100px; margin: auto; padding: 24px; }
+header { padding-bottom: 0 !important; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 8px 0; letter-spacing: -.04em; }
+h2 { font-size: 1.25rem; margin-top: 0; }
+p { line-height: 1.6; }
+.eyebrow { font-size: .75rem; letter-spacing: .18em; font-weight: 700; color: #215a70; }
+.notice { padding: 14px 18px; background: #e0edf1; border-left: 4px solid #26738b; border-radius: 6px; }
+.workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.card { background: white; border: 1px solid #d5dfe7; border-radius: 14px; padding: 24px; box-shadow: 0 3px 12px #18283b08; }
+label { display: block; font-size: .9rem; font-weight: 600; margin: 12px 0 6px; }
+input, textarea, select, button { font: inherit; }
+input:not([type=checkbox]), textarea, select { width: 100%; background: white; color: inherit; border: 1px solid #8495a5; border-radius: 6px; padding: 10px 12px; }
+textarea { resize: vertical; }
+button { border: 1px solid #175b70; border-radius: 6px; padding: 10px 16px; background: #175b70; color: white; font-weight: 600; cursor: pointer; min-height: 44px; }
+form > button { margin-top: 18px; width: 100%; }
+button.secondary { background: white; color: #175b70; }
+button:disabled { opacity: .6; cursor: wait; }
+:focus-visible { outline: 3px solid #b35a00; outline-offset: 3px; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.checkbox { display: flex; align-items: center; gap: 8px; min-height: 36px; }
+.checkbox input { width: 20px; height: 20px; }
+#assistant-mode { font-weight: 600; color: #735010; }
+#warnings { font-size: .85rem; line-height: 1.6; padding-left: 20px; }
+#feedback:empty { display: none; }
+#feedback { padding: 12px; background: #e0edf1; border-radius: 6px; overflow-wrap: anywhere; }
+#feedback.error { background: #fce8e6; color: #8b241b; }
+.queue { margin-top: 24px; }
+.queue-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.queue-heading h2 { margin: 0; }
+#filter { max-width: 240px; }
+.jobs { list-style: none; padding: 0; margin-bottom: 0; }
+.job { padding: 20px 0; border-top: 1px solid #d5dfe7; display: flex; justify-content: space-between; gap: 20px; }
+.job h3 { margin: 0 0 6px; overflow-wrap: anywhere; }
+.job p { margin: 4px 0; }
+.job small { color: #536575; }
+.status { display: inline-block; background: #e8eef5; border-radius: 20px; padding: 3px 10px; font-size: .8rem; font-weight: 700; }
+.status.completed { color: #1b6135; background: #e3f3e7; }
+.status.cancelled { color: #6d4040; background: #f4e8e8; }
+.actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+footer { font-size: .85rem; color: #536575; }
+@media (max-width: 720px) { .workspace { grid-template-columns: 1fr; } .shell { padding: 16px; } .card { padding: 18px; } .job { flex-direction: column; gap: 10px; } }

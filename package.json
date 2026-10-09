@@ -1,0 +1,17 @@
+{
+  "name": "eparepository",
+  "version": "1.0.0",
+  "description": "Local-first print job planning and queue",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "check": "node --check server.js && node --check lib.js && node --check public/app.js && node --check test/app.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=24" }
+}
