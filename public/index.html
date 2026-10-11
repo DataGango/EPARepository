@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Print Desk — local job planner</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="shell">
+    <p class="eyebrow">LOCAL WORKSPACE</p>
+    <h1>Print Desk</h1>
+    <p>Plan your prints. Keep the queue moving.</p>
+    <p class="notice"><strong>Simulation only.</strong> Document names are descriptions, not uploaded files. Status changes are manual; no physical printer is connected.</p>
+  </header>
+  <main class="shell">
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <div class="workspace">
+      <section class="card" aria-labelledby="assistant-title">
+        <h2 id="assistant-title">Draft with the assistant</h2>
+        <p id="assistant-mode">Checking assistant mode…</p>
+        <form id="assistant-form">
+          <label for="prompt">Describe your job</label>
+          <textarea id="prompt" name="prompt" rows="5" maxlength="2000" required placeholder='Print "Quarterly report", 3 copies, 12 pages, color, A4, duplex.'></textarea>
+          <button id="draft-button" type="submit" disabled>Create editable draft</button>
+        </form>
+        <p>Drafting never creates a job. Review the form, then choose <strong>Add to queue</strong>.</p>
+        <ul id="warnings" aria-live="polite"></ul>
+      </section>
+      <section class="card" aria-labelledby="job-title">
+        <h2 id="job-title">Create a print job</h2>
+        <form id="job-form">
+          <label for="name">Document name</label>
+          <input id="name" name="name" maxlength="120" required placeholder="e.g. Quarterly report">
+          <div class="field-grid">
+            <div><label for="copies">Copies</label><input id="copies" name="copies" type="number" min="1" max="999" step="1" value="1" required></div>
+            <div><label for="pages">Pages per copy</label><input id="pages" name="pages" type="number" min="1" max="999" step="1" value="1" required></div>
+            <div><label for="color">Color</label><select id="color" name="color"><option value="mono">Monochrome</option><option value="color">Color</option></select></div>
+            <div><label for="paper">Paper</label><select id="paper" name="paper"><option>A4</option><option>Letter</option></select></div>
+          </div>
+          <label class="checkbox" for="duplex"><input id="duplex" name="duplex" type="checkbox"> Double-sided (duplex)</label>
+          <button type="submit">Add to queue</button>
+        </form>
+      </section>
+    </div>
+    <section class="card queue" aria-labelledby="queue-title">
+      <div class="queue-heading"><h2 id="queue-title">Job queue</h2><button id="refresh" class="secondary" type="button">Refresh queue</button></div>
+      <p id="counts" aria-live="polite">Loading jobs…</p>
+      <label for="filter">Show status</label>
+      <select id="filter"><option value="">All jobs</option><option value="queued">Queued</option><option value="processing">Processing</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select>
+      <p id="empty" hidden>No jobs in this view.</p>
+      <ul id="jobs" class="jobs"></ul>
+    </section>
+  </main>
+  <footer class="shell">Single-user local workspace · AI-assisted planning, human-controlled queue</footer>
+</body>
+</html>
